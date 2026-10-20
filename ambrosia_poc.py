@@ -438,3 +438,51 @@ if __name__ == "__main__":
     # 5. Active Learning Simulation
     run_active_learning_simulation(tf_lib, payloads, y_targets, n_rounds=3)
     print("\nExecution completed successfully!")
+#-------------------------------------------------------
+#Sample output
+"""
+======================================================================
+Ambrosia In Silico Reprogramming Model POC
+======================================================================
+Generated synthetic combinatorial screen: 500 payloads across 15 TFs.
+
+Training Ambrosia Neural Network...
+
+=======================================================
+Model                | CSE (↓)    | PCC (↑)    | AUPRC (↑) 
+-------------------------------------------------------
+Mean Baseline        | 0.5823     | 0.0000     | 0.6250    
+Additive Baseline    | 0.1954     | 0.8631     | 0.8446    
+Ambrosia (pLM+NN)    | 0.0620     | 0.9480     | 0.9404    
+=======================================================
+
+--- Upper Confidence Bound (UCB) Payload Ranking ---
+Top 5 Candidate Payloads recommended by Ambrosia UCB:
+ Rank 1: ['HAND2', 'OCT4', 'SOX2'] | mu=0.1438 | std=0.0090 | UCB=0.1528 | True y=0.1105
+ Rank 2: ['KLF4', 'OCT4']          | mu=0.1289 | std=0.0085 | UCB=0.1374 | True y=0.1560
+ Rank 3: ['OCT4', 'SOX2', 'NURR1'] | mu=0.1205 | std=0.0139 | UCB=0.1344 | True y=0.2008
+ Rank 4: ['LMX1A', 'OCT4', 'SOX2'] | mu=0.1276 | std=0.0092 | UCB=0.1368 | True y=0.1763
+ Rank 5: ['KLF4', 'MYC']           | mu=0.1108 | std=0.0148 | UCB=0.1256 | True y=0.0724
+
+--- Generative MCMC Sampling (Algorithm 1) ---
+Sampling payloads S ~ p(S | y > 0.0847)...
+Top 5 Generatively Designed Multi-TF Payloads:
+ Sample 1: Payload=['OCT4', 'SOX2', 'NURR1'] | P(y > tau | S) = 1.0000
+ Sample 2: Payload=['OCT4', 'SOX2'] | P(y > tau | S) = 1.0000
+ Sample 3: Payload=['CEBPA', 'SOX2', 'OCT4'] | P(y > tau | S) = 1.0000
+ Sample 4: Payload=['MEF2C', 'OCT4', 'SOX2'] | P(y > tau | S) = 1.0000
+ Sample 5: Payload=['MYC', 'KLF4', 'SOX2'] | P(y > tau | S) = 1.0000
+
+--- Active Learning Lab-in-the-Loop Simulation ---
+Total dataset size: 500 | 'Hit' threshold (Top 20%): 0.0749 | Total hits: 100
+Round 0 (Initialization): Tested 63 payloads | Discovered 8/100 hits (8.0%)
+Round 1: Tested +50 payloads | Cumulative hits: 58/100 (58.0%)
+Round 2: Tested +50 payloads | Cumulative hits: 82/100 (82.0%)
+Round 3: Tested +50 payloads | Cumulative hits: 96/100 (96.0%)
+
+Execution completed successfully!
+"""
+# ======================================================
+
+#NOTE: majority of the code was assisstively written with the help of Gemini AI.
+
